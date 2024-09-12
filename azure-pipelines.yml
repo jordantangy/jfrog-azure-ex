@@ -17,12 +17,19 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
-  
+- task: JFrogConan@1
+  inputs:
+    conanCommand: 'Add Remote'
+    remoteName: 'conan-remote'
+    artifactoryConnection: 'jordanta-rt'
+    conanRepo: 'conan-test-v'
+    purgeExistingRemotes: false
+
 - task: JFrogConan@1
   inputs:
     conanCommand: 'Upload'
-    patternOrReference: 'conan-local'
-    conanUserHome: '$(Agent.WorkFolder)/$(System.DefinitionId)'
-    collectBuildInfo: true
-    buildName: 'test-conan'
-    buildNumber: '1'
+    patternOrReference: 'conan-min*'
+    extraArguments: '-r artifactory --all'
+    buildName: '$(Build.DefinitionName)'
+    buildNumber: '$(Build.BuildNumber)'
+    workingDirectory: 'resources/conanTask/files' 
