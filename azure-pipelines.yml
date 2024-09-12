@@ -29,7 +29,7 @@ steps:
   inputs:
     conanCommand: 'Upload'
     patternOrReference: 'conan-min*'
-    extraArguments: '-r artifactory --all'
+    extraArguments: '-r conan-remote --all'
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
     workingDirectory: 'resources/conanTask/files' 
