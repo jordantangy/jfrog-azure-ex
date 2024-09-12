@@ -32,7 +32,7 @@ steps:
     extraArguments: '-r conan-remote --all'
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
-    workingDirectory: 'resources/conanTask/files' 
+    workingDirectory: '/resources/conanTask/files' 
     
 - task: JFrogPublishBuildInfo@1
   inputs:
