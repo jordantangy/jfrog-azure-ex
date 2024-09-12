@@ -21,5 +21,8 @@ steps:
 - task: JFrogConan@1
   inputs:
     conanCommand: 'Upload'
-    buildName: '$(Build.DefinitionName)'
-    buildNumber: '$(Build.BuildNumber)'
+    patternOrReference: 'conan-local'
+    conanUserHome: '$(Agent.WorkFolder)/$(System.DefinitionId)'
+    collectBuildInfo: true
+    buildName: 'test-conan'
+    buildNumber: '1'
