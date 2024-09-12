@@ -28,11 +28,11 @@ steps:
 - task: JFrogConan@1
   inputs:
     conanCommand: 'Upload'
-    patternOrReference: 'conan-min*'
+    patternOrReference: 'Conan-min*'
     extraArguments: '-r conan-remote --all'
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
-    workingDirectory: '/resources/conanTask/files' 
+    workingDirectory: 'resources/conanTask/files' 
     
 - task: JFrogPublishBuildInfo@1
   inputs:
