@@ -28,8 +28,9 @@ steps:
 - task: JFrogConan@1
   inputs:
     conanCommand: 'Upload'
-    patternOrReference: 'conan-min/*'
+    patternOrReference: 'conan-min*'
     extraArguments: '-r conan-remote --all'
+    conanUserHome: '$(Agent.WorkFolder)/$(System.DefinitionId)'
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
     
