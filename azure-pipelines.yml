@@ -33,3 +33,9 @@ steps:
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
     workingDirectory: 'resources/conanTask/files' 
+    
+- task: JFrogPublishBuildInfo@1
+  inputs:
+    artifactoryConnection: 'jordanta-rt'
+    buildName: '$(Build.DefinitionName)'
+    buildNumber: '$(Build.BuildNumber)'
