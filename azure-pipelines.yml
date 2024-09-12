@@ -24,16 +24,22 @@ steps:
     artifactoryConnection: 'jordanta-rt'
     conanRepo: 'conan-test-v'
     purgeExistingRemotes: false
-
+- task: JFrogConan@1
+  inputs:
+    conanCommand: 'Create'
+    createPath: 'conan-min'
+    createReference: 'user/testing'
+    extraArguments: '-r conan-remote --build missing'
+    buildName: '$(Build.DefinitionName)'
+    buildNumber: '$(Build.BuildNumber)'
 - task: JFrogConan@1
   inputs:
     conanCommand: 'Upload'
     patternOrReference: 'conan-min*'
     extraArguments: '-r conan-remote --all'
-    conanUserHome: '$(Agent.WorkFolder)/$(System.DefinitionId)'
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
-    
+
 - task: JFrogPublishBuildInfo@1
   inputs:
     artifactoryConnection: 'jordanta-rt'
