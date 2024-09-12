@@ -29,13 +29,13 @@ steps:
     conanCommand: 'Create'
     createPath: 'conan-min'
     createReference: 'user/testing'
-    extraArguments: '-r conan-remote --build missing'
+    extraArguments: '-r conan-remote --build -s compuler.cppstd=14'
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
 - task: JFrogConan@1
   inputs:
     conanCommand: 'Upload'
-    patternOrReference: 'conan-min*'
+    patternOrReference: 'Conan-min*'
     extraArguments: '-r conan-remote --all'
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
