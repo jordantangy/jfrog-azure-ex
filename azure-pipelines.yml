@@ -29,7 +29,7 @@ steps:
     conanCommand: 'Create'
     createPath: 'conan-min'
     createReference: 'user/testing'
-    extraArguments: '-r conan-remote --build missing'
+    extraArguments: '-r conan-remote --build missing -o boost:without_locale=True -o boost:without_stacktrace_backtrace=True'
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
 - task: JFrogConan@1
